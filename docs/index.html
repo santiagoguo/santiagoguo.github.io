@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>郭亚斌 - 商家运营专家</title>
+    <title>郭亚斌 - 商家运营专家</title>git checkout -b private-docs
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script>
@@ -70,8 +70,7 @@
                     <a href="#about" class="text-white hover:text-primary transition-custom font-medium">关于我</a>
                     <a href="#skills" class="text-white hover:text-primary transition-custom font-medium">核心能力</a>
                     <a href="#experience" class="text-white hover:text-primary transition-custom font-medium">职业经历</a>
-                    <a href="#projects" class="text-white hover:text-primary transition-custom font-medium">项目成果</a>
-                    <a href="#contact" class="text-white hover:text-primary transition-custom font-medium">联系沟通</a>
+                        <a href="#contact" class="text-white hover:text-primary transition-custom font-medium">联系沟通</a>
                 </nav>
 
                 <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
@@ -85,7 +84,6 @@
                 <a href="#about" class="block py-2 text-dark hover:text-primary transition-custom">关于我</a>
                 <a href="#skills" class="block py-2 text-dark hover:text-primary transition-custom">核心能力</a>
                 <a href="#experience" class="block py-2 text-dark hover:text-primary transition-custom">职业经历</a>
-                <a href="#projects" class="block py-2 text-dark hover:text-primary transition-custom">项目成果</a>
                 <a href="#contact" class="block py-2 text-dark hover:text-primary transition-custom">联系沟通</a>
             </div>
         </div>
@@ -129,14 +127,14 @@
     <section id="about" class="py-20 bg-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-dark mb-4">关于郭亚斌</h2>
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-dark mb-4">关于亚斌</h2>
                 <div class="w-20 h-1 bg-primary mx-auto rounded-full"></div>
             </div>
 
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="relative">
                     <div class="absolute -top-4 -left-4 w-full h-full border-2 border-primary rounded-lg"></div>
-                    <img src="https://picsum.photos/600/600?random=1" alt="郭亚斌个人形象" class="w-full h-auto rounded-lg shadow-xl relative z-10">
+                    <img src="个人风采.jpg" alt="郭亚斌个人形象" class="w-full h-auto rounded-lg shadow-xl relative z-10">
                     <div class="absolute -bottom-4 -right-4 w-full h-full border-2 border-secondary rounded-lg"></div>
                 </div>
 
@@ -165,10 +163,34 @@
                         </div>
                     </div>
 
-                    <a href="#" class="inline-flex items-center px-6 py-3 bg-primary text-white rounded-full font-medium shadow-md hover:shadow-lg hover:bg-primary/90 transition-custom transform hover:-translate-y-1">
+                    <a href="#" onclick="promptDownload()" class="inline-flex items-center px-6 py-3 bg-primary text-white rounded-full font-medium shadow-md hover:shadow-lg hover:bg-primary/90 transition-custom transform hover:-translate-y-1">
                         <i class="fa fa-download mr-2"></i>
                         下载完整简历
                     </a>
+
+                    <!-- 引入 CryptoJS 用于 SHA-256 哈希计算 -->
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+                    <script>
+  function promptDownload() {
+    const correctHash = '89d12ef4b5ff0e8cfa5f2fa3b15ca72ee227025f695383250e75345f194d560f';
+    const userPassword = prompt('请输入身份证号后四位以下载简历：');
+
+    if (userPassword === null) {
+      // 用户点击了取消
+      return;
+    }
+
+    // 计算用户输入的 SHA-256 哈希
+    const hash = CryptoJS.SHA256(userPassword.trim()).toString();
+
+    if (hash === correctHash) {
+      // 密码正确，触发下载
+      window.location.href = '郭亚斌-商品&产品运营.docx';
+    } else {
+      alert('密码错误，无法下载文件。');
+    }
+  }
+</script>
                 </div>
             </div>
         </div>
@@ -475,6 +497,54 @@
         </div>
     </section>
 
+    <!-- 项目成果板块 -->
+    <section id="projects" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-dark mb-4">项目成果</h2>
+                <div class="w-20 h-1 bg-primary mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 animate-slide-up">
+                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                        <i class="fa fa-shopping-cart text-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">速卖通商品运营</h3>
+                    <p class="text-gray-700 mb-4">主导第三方平台商品引入，接入AI选品、商品优化能力，累计通品破千万</p>
+                    <div class="flex items-center text-primary">
+                        <span>查看详情</span>
+                        <i class="fa fa-arrow-right ml-2"></i>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 animate-slide-up" style="animation-delay: 0.2s">
+                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                        <i class="fa fa-store text-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">服务商商品化项目</h3>
+                    <p class="text-gray-700 mb-4">实现xx服务商商品化项目0-1落地及全球推广，年营收破千万</p>
+                    <div class="flex items-center text-primary">
+                        <span>查看详情</span>
+                        <i class="fa fa-arrow-right ml-2"></i>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 animate-slide-up" style="animation-delay: 0.4s">
+                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                        <i class="fa fa-plane text-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">海外商家运营</h3>
+                    <p class="text-gray-700 mb-4">管理10余家KA商家（含Webbeds等国际头部供应商），提升合作深度与广度</p>
+                    <div class="flex items-center text-primary">
+                        <span>查看详情</span>
+                        <i class="fa fa-arrow-right ml-2"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- 教育背景 -->
     <section id="education" class="py-20 bg-gray-50">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -603,36 +673,46 @@
                             <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">跨境电商</span>
                             <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">商业化</span>
                         </div>
-                        <div class="mt-4">
-                            <span class="text-gray-700">期望薪资：</span>
-                            <span class="font-medium">35-50K</span>
-                        </div>
                     </div>
                 </div>
-
                 <div class="bg-gray-50 p-8 rounded-lg shadow-lg animate-slide-up" style="animation-delay: 0.2s">
                     <h3 class="text-xl font-bold mb-6">发送消息</h3>
 
-                    <form>
-                        <div class="mb-6">
-                            <label for="name" class="block text-gray-700 mb-2">姓名</label>
-                            <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-custom" placeholder="请输入您的姓名">
+                    <form id="contactForm" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">姓名</label>
+                                <input type="text" id="name" name="name" required
+                                       class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">邮箱</label>
+                                <input type="email" id="email" name="email" required
+                                       class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary">
+                                <small id="emailError" class="text-red-500 hidden">请输入有效的邮箱地址</small>
+                            </div>
                         </div>
-
-                        <div class="mb-6">
-                            <label for="email" class="block text-gray-700 mb-2">邮箱</label>
-                            <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-custom" placeholder="请输入您的邮箱">
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">留言</label>
+                            <textarea id="message" name="message" rows="4" required
+                                      class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"></textarea>
                         </div>
-
-                        <div class="mb-6">
-                            <label for="message" class="block text-gray-700 mb-2">消息</label>
-                            <textarea id="message" rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-custom" placeholder="请输入您的消息"></textarea>
-                        </div>
-
-                        <button type="submit" class="w-full px-6 py-3 bg-primary text-white rounded-lg font-medium shadow-md hover:shadow-lg hover:bg-primary/90 transition-custom transform hover:-translate-y-1">
-                            发送消息
+                        <button type="submit"
+                                class="inline-flex items-center px-6 py-3 bg-primary text-white rounded-full font-medium shadow-md hover:shadow-lg hover:bg-primary/90 transition-custom transform hover:-translate-y-1">
+                            提交留言
                         </button>
                     </form>
+
+                    <!-- 成功发送提示框 -->
+                    <div id="successModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                      <div class="bg-white rounded-lg p-8 max-w-md w-full">
+                        <h3 class="text-xl font-bold mb-4 text-gray-800">发送成功！</h3>
+                        <p class="mb-6 text-gray-600">您的消息已成功发送，我会尽快回复。</p>
+                        <button onclick="closeSuccessModal()" class="w-full px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90 transition-colors">
+                          确定
+                        </button>
+                      </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -642,21 +722,6 @@
     <footer class="bg-dark text-white py-12">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-3 gap-8">
-                <div>
-                    <h3 class="text-xl font-bold mb-4">郭亚斌</h3>
-                    <p class="text-gray-400 mb-6">9年跨境电商领域从业者，专注商家运营与商业化增长</p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary transition-custom">
-                            <i class="fa fa-weixin"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary transition-custom">
-                            <i class="fa fa-linkedin"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary transition-custom">
-                            <i class="fa fa-envelope"></i>
-                        </a>
-                    </div>
-                </div>
 
                 <div>
                     <h3 class="text-lg font-bold mb-4">快速链接</h3>
@@ -681,8 +746,8 @@
                             <span class="text-gray-400">Santiagoguo@163.com</span>
                         </li>
                         <li class="flex items-center">
-                            <i class="fa fa-map-marker text-primary mr-2"></i>
-                            <span class="text-gray-400">期望城市：杭州</span>
+                            <i class="fa fa-weixin text-primary mr-2"></i>
+                            <img src="微信二维码.png" alt="微信二维码" class="w-32 h-32 rounded-md shadow-md">
                         </li>
                     </ul>
                 </div>
@@ -693,6 +758,57 @@
             </div>
         </div>
     </footer>
+
+    <!-- 引入 EmailJS SDK -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        // 初始化 EmailJS（请替换为你自己的信息）
+        emailjs.init({publicKey: '_kexwYWK-cAyCzmVr'});
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const emailInput = document.getElementById('email');
+            const emailError = document.getElementById('emailError');
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            // 邮箱格式验证
+            if (!emailPattern.test(emailInput.value)) {
+                emailError.classList.remove('hidden');
+                emailInput.focus();
+                return;
+            } else {
+                emailError.classList.add('hidden');
+            }
+
+            // 收集表单数据
+            const formData = new FormData(this);
+            const templateParams = {
+                name: formData.get('name'),
+                email: formData.get('email')
+            };
+
+            // 发送邮件
+            emailjs.send('service_8y1g9xk', 'template_2eh06xt', templateParams)
+                .then(function (response) {
+                    showSuccessModal();
+                    document.getElementById('contactForm').reset();
+                }, function (error) {
+                    alert('发送失败，请稍后再试。');
+                    console.error('EmailJS Error:', error);
+                });
+
+        });
+
+        // 显示成功提示框
+        function showSuccessModal() {
+            document.getElementById('successModal').classList.remove('hidden');
+        }
+
+        // 关闭成功提示框
+        function closeSuccessModal() {
+            document.getElementById('successModal').classList.add('hidden');
+        }
+    </script>
 
     <script>
         // 导航栏滚动效果
